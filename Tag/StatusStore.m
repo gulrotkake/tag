@@ -51,6 +51,8 @@ static NSString* mkdir(NSString* filePath) {
     }
     self.timer = nil;
     self.filename = nil;
+    self.tags = nil;
+    self.listener = nil;
     [super dealloc];
 }
 
