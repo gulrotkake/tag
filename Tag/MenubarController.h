@@ -7,13 +7,13 @@
 @interface MenubarController : NSObject {
 }
 
-@property (nonatomic) BOOL hasActiveIcon;
-@property (nonatomic, retain) NSStatusItem *statusItem;
-@property (nonatomic, retain) StatusItemView *statusItemView;
+@property(nonatomic) BOOL hasActiveIcon;
+@property(nonatomic, retain) NSStatusItem* statusItem;
+@property(nonatomic, retain) StatusItemView* statusItemView;
 
-- (void) setError:(NSString *)error;
-- (void) setStatus:(BOOL)working;
-- (void) startAnimation;
-- (void) stopAnimation;
+- (void)setError:(NSString*)error;
+- (void)setStatus:(BOOL)working;
+- (void)startAnimation;
+- (void)stopAnimation;
 
 @end

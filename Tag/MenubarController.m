@@ -2,8 +2,8 @@
 #import "StatusItemView.h"
 
 @interface MenubarController ()
-@property (assign, nonatomic) BOOL inError;
-@property (assign, nonatomic) BOOL oldStatus;
+@property(assign, nonatomic) BOOL inError;
+@property(assign, nonatomic) BOOL oldStatus;
 @end
 
 @implementation MenubarController
@@ -15,11 +15,9 @@
 
 #pragma mark -
 
-- (id)init
-{
+- (id)init {
     self = [super init];
-    if (self != nil)
-    {
+    if (self != nil) {
         // Install status item into the menu bar
         self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:STATUS_ITEM_VIEW_WIDTH];
         self.statusItemView = [[[StatusItemView alloc] initWithStatusItem:statusItem] autorelease];
@@ -32,8 +30,7 @@
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     self.inError = NO;
     [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
     self.statusItem = nil;
@@ -44,32 +41,29 @@
 #pragma mark -
 #pragma mark Public accessors
 
-- (NSStatusItem *)statusItem
-{
+- (NSStatusItem*)statusItem {
     return self.statusItemView.statusItem;
 }
 
 #pragma mark -
 
-- (BOOL)hasActiveIcon
-{
+- (BOOL)hasActiveIcon {
     return self.statusItemView.isHighlighted;
 }
 
-- (void) startAnimation {
+- (void)startAnimation {
     [self.statusItemView startAnimation];
 }
 
-- (void) stopAnimation {
+- (void)stopAnimation {
     [self.statusItemView stopAnimation];
 }
 
-- (void)setHasActiveIcon:(BOOL)flag
-{
+- (void)setHasActiveIcon:(BOOL)flag {
     self.statusItemView.isHighlighted = flag;
 }
 
-- (void) setError:(NSString *)error {
+- (void)setError:(NSString*)error {
     if (error) {
         inError = YES;
         statusItemView.image = [NSImage imageNamed:@"StatusFailed"];
@@ -80,8 +74,9 @@
     }
 }
 
-- (void) setStatus:(BOOL)working {
-    if (working == oldStatus && !inError) return;
+- (void)setStatus:(BOOL)working {
+    if (working == oldStatus && !inError)
+        return;
     oldStatus = working;
     if (inError) {
         [self setError:nil];

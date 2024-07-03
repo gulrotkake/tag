@@ -1,8 +1,8 @@
 #import "PanelController.h"
 #import "BackgroundView.h"
-#import "StatusItemView.h"
-#import "MenubarController.h"
 #import "Entry.h"
+#import "MenubarController.h"
+#import "StatusItemView.h"
 #import "Utilities.h"
 
 #define OPEN_DURATION .15
@@ -17,12 +17,12 @@
 #pragma mark -
 
 @interface PanelController () <NSTextViewDelegate>
-@property (retain, nonatomic) Entry *entry;
-@property (assign, nonatomic) BOOL disabled;
-@property (copy, nonatomic) NSString *totalString;
-@property (copy, nonatomic) NSString *lastString;
-@property (assign, nonatomic) BOOL backspaceDetected;
-@property (retain, nonatomic) NSSet *completionTags;
+@property(retain, nonatomic) Entry* entry;
+@property(assign, nonatomic) BOOL disabled;
+@property(copy, nonatomic) NSString* totalString;
+@property(copy, nonatomic) NSString* lastString;
+@property(assign, nonatomic) BOOL backspaceDetected;
+@property(retain, nonatomic) NSSet* completionTags;
 @end
 
 @implementation PanelController
@@ -48,11 +48,9 @@
 
 #pragma mark -
 
-- (id)initWithDelegate:(id<PanelControllerDelegate>)delegate tags:(NSSet*)tags
-{
+- (id)initWithDelegate:(id<PanelControllerDelegate>)delegate tags:(NSSet*)tags {
     self = [super initWithWindowNibName:@"Panel"];
-    if (self != nil)
-    {
+    if (self != nil) {
         _delegate = delegate;
         self.signedIn = NO;
         self.disabled = YES;
@@ -63,8 +61,7 @@
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSControlTextDidChangeNotification object:self.inputText];
     self.totalString = nil;
     self.lastString = nil;
@@ -74,18 +71,17 @@
 
 #pragma mark -
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
-    
+
     // Make a fully skinned panel
-    NSPanel *panel = (id)[self window];
+    NSPanel* panel = (id)[self window];
     [panel setAcceptsMouseMovedEvents:YES];
     [panel setLevel:NSPopUpMenuWindowLevel];
     [panel setOpaque:NO];
     [panel setBackgroundColor:[NSColor clearColor]];
-    
-    [sum setStringValue:totalString?:@""];
+
+    [sum setStringValue:totalString ?: @""];
 
     // Resize panel
     NSRect panelRect = [[self window] frame];
@@ -94,21 +90,21 @@
     [self.inputText setDelegate:self];
     [self.inputText setTagCompletions:[self.completionTags allObjects]];
 
-   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parseInput) name:NSControlTextDidChangeNotification object:self.inputText];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parseInput) name:NSControlTextDidChangeNotification object:self.inputText];
 
-    if (disabled) [self disable];
-    else [self enable];
+    if (disabled)
+        [self disable];
+    else
+        [self enable];
 }
 
 #pragma mark - Public accessors
 
-- (BOOL)hasActivePanel
-{
+- (BOOL)hasActivePanel {
     return _hasActivePanel;
 }
 
-- (BOOL)textView:(NSTextView *)aTextView doCommandBySelector:(SEL)aSelector
-{
+- (BOOL)textView:(NSTextView*)aTextView doCommandBySelector:(SEL)aSelector {
     if (aSelector == @selector(insertNewline:)) {
         [_delegate registerEntry:[entry timestamp] tags:[entry tags] description:[entry description]];
         [descriptionText setStringValue:@""];
@@ -125,10 +121,10 @@
     return NO;
 }
 
-- (void) enable {
+- (void)enable {
     self.disabled = NO;
-    NSArray *fields = [NSArray arrayWithObjects:tagsLabel, whenLabel, tags, when, descriptionLabel, descriptionText, nil];
-    for (NSTextField *field in fields) {
+    NSArray* fields = [NSArray arrayWithObjects:tagsLabel, whenLabel, tags, when, descriptionLabel, descriptionText, nil];
+    for (NSTextField* field in fields) {
         [field setEnabled:YES];
         [field setTextColor:[NSColor controlTextColor]];
     }
@@ -136,10 +132,10 @@
     [_inputText setEditable:YES];
 }
 
-- (void) disable {
+- (void)disable {
     self.disabled = YES;
-    NSArray *fields = [NSArray arrayWithObjects:tagsLabel, whenLabel, tags, when, descriptionLabel, descriptionText, nil];
-    for (NSTextField *field in fields) {
+    NSArray* fields = [NSArray arrayWithObjects:tagsLabel, whenLabel, tags, when, descriptionLabel, descriptionText, nil];
+    for (NSTextField* field in fields) {
         [field setEnabled:NO];
         [field setTextColor:[NSColor disabledControlTextColor]];
     }
@@ -148,23 +144,18 @@
     [box setTitle:@""];
 }
 
-- (void) setTotal:(NSString *)total {
+- (void)setTotal:(NSString*)total {
     self.totalString = total;
     [sum setStringValue:totalString];
 }
 
-- (void)setHasActivePanel:(BOOL)flag
-{
-    if (_hasActivePanel != flag)
-    {
+- (void)setHasActivePanel:(BOOL)flag {
+    if (_hasActivePanel != flag) {
         _hasActivePanel = flag;
-        
-        if (_hasActivePanel)
-        {
+
+        if (_hasActivePanel) {
             [self openPanel];
-        }
-        else
-        {
+        } else {
             [self closePanel];
         }
     }
@@ -172,41 +163,35 @@
 
 #pragma mark - NSWindowDelegate
 
-- (void)windowWillClose:(NSNotification *)notification
-{
+- (void)windowWillClose:(NSNotification*)notification {
     self.hasActivePanel = NO;
 }
 
-- (void)windowDidResignKey:(NSNotification *)notification;
+- (void)windowDidResignKey:(NSNotification*)notification;
 {
-    if ([[self window] isVisible])
-    {
+    if ([[self window] isVisible]) {
         self.hasActivePanel = NO;
     }
 }
 
-- (void)windowDidResize:(NSNotification *)notification
-{
-    NSWindow *panel = [self window];
+- (void)windowDidResize:(NSNotification*)notification {
+    NSWindow* panel = [self window];
     NSRect statusRect = [self statusRectForWindow:panel];
     NSRect panelRect = [panel frame];
-    
+
     CGFloat statusX = roundf(NSMidX(statusRect));
     CGFloat panelX = statusX - NSMinX(panelRect);
-    
+
     self.backgroundView.arrowX = panelX;
-    
+
     NSRect inputTextRect = [self.inputView frame];
     inputTextRect.size.width = NSWidth([self.backgroundView bounds]) - SEARCH_INSET * 2;
     inputTextRect.origin.x = SEARCH_INSET;
     inputTextRect.origin.y = NSHeight([self.backgroundView bounds]) - ARROW_HEIGHT - TOP_INSET - NSHeight(inputTextRect);
-    
-    if (NSIsEmptyRect(inputTextRect))
-    {
+
+    if (NSIsEmptyRect(inputTextRect)) {
         [self.inputView setHidden:YES];
-    }
-    else
-    {
+    } else {
         [self.inputView setFrame:inputTextRect];
         [self.inputView setHidden:NO];
     }
@@ -217,49 +202,45 @@
     [sum setFrame:frame];
 }
 
-- (void) setWorking:(BOOL)working
-{
+- (void)setWorking:(BOOL)working {
     self.signedIn = working;
 }
 
 #pragma mark - Keyboard
 
-- (void)cancelOperation:(id)sender
-{
+- (void)cancelOperation:(id)sender {
     self.hasActivePanel = NO;
 }
 
-- (NSDate *) parseTimeString:(NSString *)input range:(NSRange *)range
-{
-    if (!input || [input length] == 0) return [NSDate date];
+- (NSDate*)parseTimeString:(NSString*)input range:(NSRange*)range {
+    if (!input || [input length] == 0)
+        return [NSDate date];
 
-    NSError *error;
-    NSDataDetector *guess = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeDate error:&error];
-    NSArray *matches = [guess matchesInString:input options:0 range:NSMakeRange(0, [input length])];
-    
+    NSError* error;
+    NSDataDetector* guess = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeDate error:&error];
+    NSArray* matches = [guess matchesInString:input options:0 range:NSMakeRange(0, [input length])];
+
     // For now we only care about the first match and its location. Improve later
     if ([matches count] > 0 && [[matches objectAtIndex:0] range].location < 7) {
         *range = [[matches objectAtIndex:0] range];
-        return ((NSTextCheckingResult *)[matches objectAtIndex:0]).date;
+        return ((NSTextCheckingResult*)[matches objectAtIndex:0]).date;
     }
     return [NSDate date];
 }
 
-- (NSArray *) parseInputForTags:(NSString *)input
-{
-    NSError *error;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"#([\\+|\\w|\\d]+)\\b" options:0 error:&error];
-    NSArray *matches = [regex matchesInString:input options:0 range:NSMakeRange(0, [input length])];
-    NSMutableArray *tagsInInput = [NSMutableArray arrayWithCapacity:[matches count]];
-    for (NSTextCheckingResult *match in matches) {
+- (NSArray*)parseInputForTags:(NSString*)input {
+    NSError* error;
+    NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"#([\\+|\\w|\\d]+)\\b" options:0 error:&error];
+    NSArray* matches = [regex matchesInString:input options:0 range:NSMakeRange(0, [input length])];
+    NSMutableArray* tagsInInput = [NSMutableArray arrayWithCapacity:[matches count]];
+    for (NSTextCheckingResult* match in matches) {
         NSRange range = [match rangeAtIndex:1];
         [tagsInInput addObject:[input substringWithRange:range]];
     }
     return tagsInInput;
 }
 
-- (void)parseInput
-{
+- (void)parseInput {
     BOOL textDidNotChange = [lastString isEqualToString:[[_inputText textStorage] string]];
 
     // Nothing else changed, ignore pointless parsing.
@@ -269,29 +250,29 @@
     }
 
     lastString = [[[_inputText textStorage] string] copy];
-    NSString *inString = lastString;
+    NSString* inString = lastString;
 
     NSRange dateRange = NSMakeRange(NSNotFound, 0);
-    NSDate *date = [self parseTimeString:inString range:&dateRange];
+    NSDate* date = [self parseTimeString:inString range:&dateRange];
     entry.timestamp = date;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDoesRelativeDateFormatting:YES];
-    
+
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [when setStringValue:[dateFormatter stringFromDate:date]];
 
-    NSArray *inputTags = [self parseInputForTags:inString];
+    NSArray* inputTags = [self parseInputForTags:inString];
     entry.tags = inputTags;
     [tags setStringValue:[inputTags componentsJoinedByString:@" "]];
 
-    NSString *descriptionString = inString;
+    NSString* descriptionString = inString;
 
     if (dateRange.location != NSNotFound) {
-        descriptionString = [descriptionString substringFromIndex:dateRange.location+dateRange.length];
+        descriptionString = [descriptionString substringFromIndex:dateRange.location + dateRange.length];
     }
-    
-    for (NSString *tag in inputTags) {
+
+    for (NSString* tag in inputTags) {
         descriptionString = [descriptionString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"#%@", tag] withString:tag];
     }
     descriptionString = [descriptionString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -321,31 +302,25 @@
     }
 }
 
-- (void)textDidChange:(NSNotification *)aNotification
-{
+- (void)textDidChange:(NSNotification*)aNotification {
     [self parseInput];
 }
 
 #pragma mark - Public methods
 
-- (NSRect)statusRectForWindow:(NSWindow *)window
-{
+- (NSRect)statusRectForWindow:(NSWindow*)window {
     NSRect screenRect = [[window screen] frame];
     NSRect statusRect = NSZeroRect;
-    
-    StatusItemView *statusItemView = nil;
-    if ([self.delegate respondsToSelector:@selector(statusItemViewForPanelController:)])
-    {
+
+    StatusItemView* statusItemView = nil;
+    if ([self.delegate respondsToSelector:@selector(statusItemViewForPanelController:)]) {
         statusItemView = [self.delegate statusItemViewForPanelController:self];
     }
-    
-    if (statusItemView)
-    {
+
+    if (statusItemView) {
         statusRect = statusItemView.globalRect;
         statusRect.origin.y = NSMinY(statusRect) - NSHeight(statusRect);
-    }
-    else
-    {
+    } else {
         statusRect.size = NSMakeSize(STATUS_ITEM_VIEW_WIDTH, [[NSStatusBar systemStatusBar] thickness]);
         statusRect.origin.x = roundf((NSWidth(screenRect) - NSWidth(statusRect)) / 2);
         statusRect.origin.y = NSHeight(screenRect) - NSHeight(statusRect) * 2;
@@ -353,58 +328,55 @@
     return statusRect;
 }
 
-- (void)openPanel
-{
-    NSWindow *panel = [self window];
-    
+- (void)openPanel {
+    NSWindow* panel = [self window];
+
     NSRect screenRect = [[panel screen] frame];
     NSRect statusRect = [self statusRectForWindow:panel];
-    
+
     NSRect panelRect = [panel frame];
     panelRect.size.width = PANEL_WIDTH;
     panelRect.origin.x = roundf(NSMidX(statusRect) - NSWidth(panelRect) / 2);
     panelRect.origin.y = NSMaxY(statusRect) - NSHeight(panelRect);
-    
+
     if (NSMaxX(panelRect) > (NSMaxX(screenRect) - ARROW_HEIGHT))
         panelRect.origin.x -= NSMaxX(panelRect) - (NSMaxX(screenRect) - ARROW_HEIGHT);
-    
+
     [NSApp activateIgnoringOtherApps:NO];
     [panel setAlphaValue:0];
     [panel setFrame:statusRect display:YES];
     [panel makeKeyAndOrderFront:nil];
-    
+
     NSTimeInterval openDuration = OPEN_DURATION;
-    
-    NSEvent *currentEvent = [NSApp currentEvent];
-    if ([currentEvent type] == NSEventTypeLeftMouseDown)
-    {
+
+    NSEvent* currentEvent = [NSApp currentEvent];
+    if ([currentEvent type] == NSEventTypeLeftMouseDown) {
         NSUInteger clearFlags = ([currentEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask);
         BOOL shiftPressed = (clearFlags == NSEventModifierFlagShift);
         if (shiftPressed) {
             openDuration *= 10;
         }
     }
-    
+
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:openDuration];
     [[panel animator] setFrame:panelRect display:YES];
     [[panel animator] setAlphaValue:1];
     [NSAnimationContext endGrouping];
-    
+
     [self.inputText setTagCompletions:[self.completionTags allObjects]];
     [self parseInput];
     [panel performSelector:@selector(makeFirstResponder:) withObject:self.inputText afterDelay:openDuration];
 }
 
-- (void)closePanel
-{
+- (void)closePanel {
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:CLOSE_DURATION];
     [[[self window] animator] setAlphaValue:0];
     [NSAnimationContext endGrouping];
-    
+
     dispatch_after(dispatch_walltime(NULL, NSEC_PER_SEC * CLOSE_DURATION * 2), dispatch_get_main_queue(), ^{
-        [self.window orderOut:nil];
+      [self.window orderOut:nil];
     });
 }
 

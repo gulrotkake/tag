@@ -18,7 +18,7 @@
 @synthesize working;
 @synthesize timestamp;
 
-- (id) init {
+- (id)init {
     self = [super init];
     if (self) {
         self.tags = nil;
@@ -27,10 +27,9 @@
         self.timestamp = nil;
     }
     return self;
-    
 }
 
-- (void) dealloc {
+- (void)dealloc {
     self.tags = nil;
     self.description = nil;
     self.timestamp = nil;

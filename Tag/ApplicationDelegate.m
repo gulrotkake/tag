@@ -1,14 +1,14 @@
 #import "ApplicationDelegate.h"
-#import "DDHotKeyCenter.h"
 #import <Carbon/Carbon.h>
+#import "DDHotKeyCenter.h"
 #import "StatusStore.h"
 #import "config.h"
 
 @interface ApplicationDelegate () <StatusListener>
 
-@property (retain, nonatomic) StatusStore *statusFetcher;
-@property (assign, nonatomic) BOOL firstFetch;
-@property (retain) NSString *key;
+@property(retain, nonatomic) StatusStore* statusFetcher;
+@property(assign, nonatomic) BOOL firstFetch;
+@property(retain) NSString* key;
 @end
 
 @implementation ApplicationDelegate
@@ -20,8 +20,7 @@
 @synthesize key;
 #pragma mark -
 
-- (void)dealloc
-{
+- (void)dealloc {
     [_panelController removeObserver:self forKeyPath:@"hasActivePanel"];
     self.statusFetcher = nil;
     self.menubarController = nil;
@@ -32,33 +31,31 @@
 
 #pragma mark -
 
-void *kContextActivePanel = &kContextActivePanel;
+void* kContextActivePanel = &kContextActivePanel;
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
+- (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context {
     if (context == kContextActivePanel) {
         self.menubarController.hasActiveIcon = self.panelController.hasActivePanel;
-    }
-    else {
+    } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
 #pragma mark - StatusListener
 
-- (void) statusChanged:(BOOL)working hours:(int)hours minutes:(int)minutes {
+- (void)statusChanged:(BOOL)working hours:(int)hours minutes:(int)minutes {
     if (firstFetch) {
         firstFetch = NO;
         [_panelController enable];
         [_menubarController stopAnimation];
-        DDHotKeyCenter * c = [[[DDHotKeyCenter alloc] init] autorelease];
+        DDHotKeyCenter* c = [[[DDHotKeyCenter alloc] init] autorelease];
         if (![c registerHotKeyWithKeyCode:kVK_Space modifierFlags:(NSEventModifierFlagControl | NSEventModifierFlagCommand) target:self action:@selector(hotkeyWithEvent:) object:nil]) {
             [self failedMiserably:@"Hotkey registration failed"];
         }
     }
 #ifndef USING_OLD_API
     if (minutes > 0 || hours > 0) {
-        NSString *total;
+        NSString* total;
         if (hours > 0) {
             total = [NSString stringWithFormat:@"Today: %dh %dm", hours, minutes];
         } else {
@@ -71,22 +68,20 @@ void *kContextActivePanel = &kContextActivePanel;
     [_menubarController setStatus:working];
 }
 
-- (void) failedMiserably:(NSString *)error {
+- (void)failedMiserably:(NSString*)error {
     NSLog(@"Failed %@", error);
     [_menubarController setError:error];
 }
 
 #pragma mark - NSApplicationDelegate
 
-
-- (void) hotkeyWithEvent:(NSEvent *)hkEvent {
+- (void)hotkeyWithEvent:(NSEvent*)hkEvent {
     if (![_menubarController hasActiveIcon]) {
         [_menubarController.statusItemView activate];
     }
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification
-{
+- (void)applicationDidFinishLaunching:(NSNotification*)notification {
     // Install icon into the menu bar
     firstFetch = YES;
     self.menubarController = [[[MenubarController alloc] init] autorelease];
@@ -99,8 +94,7 @@ void *kContextActivePanel = &kContextActivePanel;
     [statusFetcher fetchImmediatelyIfNotFetching];
 }
 
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
-{
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication*)sender {
     // Explicitly remove the icon from the menu bar
     self.menubarController = nil;
     return NSTerminateNow;
@@ -108,16 +102,14 @@ void *kContextActivePanel = &kContextActivePanel;
 
 #pragma mark - Actions
 
-- (IBAction)togglePanel:(id)sender
-{
+- (IBAction)togglePanel:(id)sender {
     self.menubarController.hasActiveIcon = !self.menubarController.hasActiveIcon;
     self.panelController.hasActivePanel = self.menubarController.hasActiveIcon;
 }
 
 #pragma mark - Public accessors
 
-- (PanelController *)panelController
-{
+- (PanelController*)panelController {
     if (_panelController == nil) {
         _panelController = [[PanelController alloc] initWithDelegate:self tags:[self.statusFetcher getTags]];
         [_panelController addObserver:self forKeyPath:@"hasActivePanel" options:0 context:kContextActivePanel];
@@ -127,12 +119,11 @@ void *kContextActivePanel = &kContextActivePanel;
 
 #pragma mark - PanelControllerDelegate
 
-- (StatusItemView *)statusItemViewForPanelController:(PanelController *)controller
-{
+- (StatusItemView*)statusItemViewForPanelController:(PanelController*)controller {
     return self.menubarController.statusItemView;
 }
 
-- (void) registerEntry:(NSDate *)timestamp tags:(NSArray *)tags description:(NSString *)description {
+- (void)registerEntry:(NSDate*)timestamp tags:(NSArray*)tags description:(NSString*)description {
     [self.statusFetcher addEntry:timestamp tags:tags description:description];
     [self.statusFetcher fetchImmediatelyIfNotFetching];
 }
