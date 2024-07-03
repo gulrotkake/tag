@@ -108,7 +108,6 @@
 {
     if (aSelector == @selector(insertNewline:)) {
         [_delegate registerEntry:[entry timestamp] tags:[entry tags] description:[entry description]];
-        // FIXME
         [descriptionText setStringValue:@""];
         [_inputText setString:@""];
         [tags setStringValue:@""];
