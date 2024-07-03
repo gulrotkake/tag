@@ -147,7 +147,6 @@ static NSString* mkdir(NSString* filePath) {
     int hours = secondsWorked / (3600);
     int minutes = secondsWorked / (60) - hours * 60;
 
-    NSLog(@"Minutes worked: %f", secondsWorked / 60);
     [listener statusChanged:working hours:hours minutes:minutes];
 }
 
