@@ -13,7 +13,5 @@
 
 - (void)setError:(NSString*)error;
 - (void)setStatus:(BOOL)working;
-- (void)startAnimation;
-- (void)stopAnimation;
 
 @end

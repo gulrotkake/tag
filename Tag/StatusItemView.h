@@ -3,8 +3,6 @@
 
 - (id)initWithStatusItem:(NSStatusItem*)statusItem;
 - (void)activate;
-- (void)startAnimation;
-- (void)stopAnimation;
 
 @property(nonatomic, retain) NSStatusItem* statusItem;
 @property(nonatomic, retain) NSImage* image;

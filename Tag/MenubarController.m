@@ -51,14 +51,6 @@
     return self.statusItemView.isHighlighted;
 }
 
-- (void)startAnimation {
-    [self.statusItemView startAnimation];
-}
-
-- (void)stopAnimation {
-    [self.statusItemView stopAnimation];
-}
-
 - (void)setHasActiveIcon:(BOOL)flag {
     self.statusItemView.isHighlighted = flag;
 }

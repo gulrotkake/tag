@@ -47,7 +47,6 @@ void* kContextActivePanel = &kContextActivePanel;
     if (firstFetch) {
         firstFetch = NO;
         [_panelController enable];
-        [_menubarController stopAnimation];
         DDHotKeyCenter* c = [[[DDHotKeyCenter alloc] init] autorelease];
         if (![c registerHotKeyWithKeyCode:kVK_Space modifierFlags:(NSEventModifierFlagControl | NSEventModifierFlagCommand) target:self action:@selector(hotkeyWithEvent:) object:nil]) {
             [self failedMiserably:@"Hotkey registration failed"];
@@ -87,7 +86,6 @@ void* kContextActivePanel = &kContextActivePanel;
     [[self panelController] setSignedIn:NO];
     [_menubarController setStatus:NO];
     [_panelController disable];
-    [_menubarController startAnimation];
     [statusFetcher startPolling];
     [statusFetcher fetchImmediatelyIfNotFetching];
 }
