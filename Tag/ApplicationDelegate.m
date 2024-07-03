@@ -53,9 +53,7 @@ void *kContextActivePanel = &kContextActivePanel;
         [_menubarController stopAnimation];
         DDHotKeyCenter * c = [[[DDHotKeyCenter alloc] init] autorelease];
         if (![c registerHotKeyWithKeyCode:kVK_Space modifierFlags:(NSEventModifierFlagControl | NSEventModifierFlagCommand) target:self action:@selector(hotkeyWithEvent:) object:nil]) {
-            NSLog(@"Unable to register hotkey for example 1");
-        } else {
-            NSLog(@"%@", [NSString stringWithFormat:@"Registered: %@", [c registeredHotKeys]]);
+            [self failedMiserably:@"Hotkey registration failed"];
         }
     }
 #ifndef USING_OLD_API

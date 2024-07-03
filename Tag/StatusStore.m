@@ -21,7 +21,7 @@
 @implementation StatusStore
 @synthesize listener, timer;
 
-static void mkdir(NSString *filePath) {
+static NSString* mkdir(NSString *filePath) {
     NSString *directoryPath = [filePath stringByDeletingLastPathComponent];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDirectory;
@@ -29,24 +29,23 @@ static void mkdir(NSString *filePath) {
     if (![fileManager fileExistsAtPath:directoryPath isDirectory:&isDirectory] || !isDirectory) {
         NSError *error = nil;
         BOOL success = [fileManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
-        
+
         if (!success) {
-            NSLog(@"Failed to create directory: %@", [error localizedDescription]);
-            NSAlert *alert = [NSAlert alertWithError:error];
-            [alert runModal];
-            abort();
+            return [error localizedDescription];
         }
     }
+    return nil;
 }
 
 - (id) initWithListenerAndKey:(id<StatusListener>)inListener key:(NSString *)inKey
 {
     self = [super init];
-    if (self) {
-        self.listener = inListener;
-        self.timer = nil;
-        self.filename = [NSString stringWithFormat:@"%@/.tag/tag.csv", NSHomeDirectory()];
-        mkdir(self.filename);
+    self.listener = inListener;
+    self.timer = nil;
+    self.filename = [NSString stringWithFormat:@"%@/.tag/tag.csv", NSHomeDirectory()];
+    NSString *error = mkdir(self.filename);
+    if (error) {
+        [self.listener failedMiserably:error];
     }
     return self;
 }
