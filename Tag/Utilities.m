@@ -1,11 +1,3 @@
-//
-//  Utilities.m
-//  TagTime
-//
-//  Created by Michael Mortensen on 8/5/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "Utilities.h"
 #import "ISO8601DateFormatter.h"
 

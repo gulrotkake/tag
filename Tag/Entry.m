@@ -1,15 +1,4 @@
-//
-//  Entry.m
-//  Popup
-//
-//  Created by Michael Mortensen on 12/5/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "Entry.h"
-#import "ISO8601DateFormatter.h"
-#import "Utilities.h"
-#import "config.h"
 
 @implementation Entry
 
