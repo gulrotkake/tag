@@ -219,14 +219,6 @@
 
 #pragma mark - Keyboard
 
-- (NSArray *)textView:(NSTextView *)textView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(NSInteger *)index {
-    NSString *string = [[textView string]
-                        substringWithRange:charRange];
-    NSLog(@"Return completions for textview %@ %lu %lu %@", words, charRange.location, charRange.length, string);
-    return [NSArray arrayWithObjects:@"mango", @"sungem", @"hermit", nil];
-}
-
-
 - (void)cancelOperation:(id)sender
 {
     self.hasActivePanel = NO;
@@ -382,14 +374,8 @@
     {
         NSUInteger clearFlags = ([currentEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask);
         BOOL shiftPressed = (clearFlags == NSEventModifierFlagShift);
-        BOOL shiftOptionPressed = (clearFlags == (NSEventModifierFlagShift | NSEventModifierFlagOption));
-        if (shiftPressed || shiftOptionPressed)
-        {
+        if (shiftPressed) {
             openDuration *= 10;
-            
-            if (shiftOptionPressed)
-                NSLog(@"Icon is at %@\n\tMenu is on screen %@\n\tWill be animated to %@",
-                      NSStringFromRect(statusRect), NSStringFromRect(screenRect), NSStringFromRect(panelRect));
         }
     }
     
@@ -411,7 +397,6 @@
     [NSAnimationContext endGrouping];
     
     dispatch_after(dispatch_walltime(NULL, NSEC_PER_SEC * CLOSE_DURATION * 2), dispatch_get_main_queue(), ^{
-        
         [self.window orderOut:nil];
     });
 }
