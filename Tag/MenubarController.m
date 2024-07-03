@@ -57,12 +57,9 @@
 }
 
 - (void)setStatus:(BOOL)working {
-    if (working == oldStatus && !inError)
+    if (working == oldStatus || inError)
         return;
     oldStatus = working;
-    if (inError) {
-        [self setError:nil];
-    }
     if (working) {
         statusItem.button.image = [NSImage imageNamed:@"Status"];
     } else {
