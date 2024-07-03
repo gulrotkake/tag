@@ -53,7 +53,6 @@ void* kContextActivePanel = &kContextActivePanel;
             [self failedMiserably:@"Hotkey registration failed"];
         }
     }
-#ifndef USING_OLD_API
     if (minutes > 0 || hours > 0) {
         NSString* total;
         if (hours > 0) {
@@ -63,7 +62,6 @@ void* kContextActivePanel = &kContextActivePanel;
         }
         [_panelController setTotal:total];
     }
-#endif
     [_panelController setWorking:working];
     [_menubarController setStatus:working];
 }
