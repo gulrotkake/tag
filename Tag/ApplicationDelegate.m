@@ -74,7 +74,9 @@ void* kContextActivePanel = &kContextActivePanel;
 
 - (void)hotkeyWithEvent:(NSEvent*)hkEvent {
     if (![_menubarController hasActiveIcon]) {
-        [_menubarController.statusItemView activate];
+        [[NSApplication sharedApplication] sendAction:_menubarController.statusItem.button.action
+                                                   to:_menubarController.statusItem.button.target
+                                                 from:_menubarController.statusItem.button];
     }
 }
 
@@ -115,8 +117,8 @@ void* kContextActivePanel = &kContextActivePanel;
 
 #pragma mark - PanelControllerDelegate
 
-- (StatusItemView*)statusItemViewForPanelController:(PanelController*)controller {
-    return self.menubarController.statusItemView;
+- (NSStatusBarButton*)statusItemButtonForPanelController:(PanelController*)controller {
+    return self.menubarController.statusItem.button;
 }
 
 - (void)registerEntry:(NSDate*)timestamp tags:(NSArray*)tags description:(NSString*)description {

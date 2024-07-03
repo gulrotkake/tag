@@ -1,14 +1,13 @@
 #import "MenubarController.h"
-#import "StatusItemView.h"
 
 @interface MenubarController ()
 @property(assign, nonatomic) BOOL inError;
 @property(assign, nonatomic) BOOL oldStatus;
+@property(assign, nonatomic) BOOL highlighted;
 @end
 
 @implementation MenubarController
 
-@synthesize statusItemView;
 @synthesize inError;
 @synthesize oldStatus;
 @synthesize statusItem;
@@ -20,12 +19,9 @@
     if (self != nil) {
         // Install status item into the menu bar
         self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:STATUS_ITEM_VIEW_WIDTH];
-        self.statusItemView = [[[StatusItemView alloc] initWithStatusItem:statusItem] autorelease];
         statusItem.button.image = [NSImage imageNamed:@"StatusInactive"];
         statusItem.button.alternateImage = [NSImage imageNamed:@"StatusHighlighted"];
-        //statusItem.button.action = @selector(togglePanel:);
-        [statusItem.button addSubview:statusItemView];
-        statusItemView.action = @selector(togglePanel:);
+        statusItem.button.action = @selector(togglePanel:);
         self.inError = NO;
     }
     return self;
@@ -35,34 +31,27 @@
     self.inError = NO;
     [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
     self.statusItem = nil;
-    self.statusItemView = nil;
     [super dealloc];
-}
-
-#pragma mark -
-#pragma mark Public accessors
-
-- (NSStatusItem*)statusItem {
-    return self.statusItemView.statusItem;
 }
 
 #pragma mark -
 
 - (BOOL)hasActiveIcon {
-    return self.statusItemView.isHighlighted;
+    return self.highlighted;
 }
 
 - (void)setHasActiveIcon:(BOOL)flag {
-    self.statusItemView.isHighlighted = flag;
+    self.highlighted = flag;
+    [self.statusItem.button setHighlighted:self.highlighted];
 }
 
 - (void)setError:(NSString*)error {
     if (error) {
         inError = YES;
-        statusItemView.image = [NSImage imageNamed:@"StatusFailed"];
-        [statusItemView setToolTip:error];
+        statusItem.button.image = [NSImage imageNamed:@"StatusFailed"];
+        [statusItem.button setToolTip:error];
     } else {
-        [statusItemView setToolTip:@""];
+        [statusItem.button setToolTip:@""];
         inError = NO;
     }
 }
@@ -75,9 +64,9 @@
         [self setError:nil];
     }
     if (working) {
-        statusItemView.image = [NSImage imageNamed:@"Status"];
+        statusItem.button.image = [NSImage imageNamed:@"Status"];
     } else {
-        statusItemView.image = [NSImage imageNamed:@"StatusInactive"];
+        statusItem.button.image = [NSImage imageNamed:@"StatusInactive"];
     }
 }
 @end

@@ -2,7 +2,6 @@
 #import "BackgroundView.h"
 #import "Entry.h"
 #import "MenubarController.h"
-#import "StatusItemView.h"
 #import "Utilities.h"
 
 #define OPEN_DURATION .15
@@ -312,14 +311,16 @@
     NSRect screenRect = [[window screen] frame];
     NSRect statusRect = NSZeroRect;
 
-    StatusItemView* statusItemView = nil;
-    if ([self.delegate respondsToSelector:@selector(statusItemViewForPanelController:)]) {
-        statusItemView = [self.delegate statusItemViewForPanelController:self];
+    NSStatusBarButton* statusItemButton = nil;
+    if ([self.delegate respondsToSelector:@selector(statusItemButtonForPanelController:)]) {
+        statusItemButton = [self.delegate statusItemButtonForPanelController:self];
     }
 
-    if (statusItemView) {
-        statusRect = statusItemView.globalRect;
-        statusRect.origin.y = NSMinY(statusRect) - NSHeight(statusRect);
+    if (statusItemButton) {
+        NSRect statusItemFrame = statusItemButton.window.frame;
+        statusRect.size = NSMakeSize(STATUS_ITEM_VIEW_WIDTH, [[NSStatusBar systemStatusBar] thickness]);
+        statusRect.origin.x = NSMidX(statusItemFrame) - NSWidth(statusRect) / 2;
+        statusRect.origin.y =  NSMinY(statusItemFrame) - NSHeight(statusRect);
     } else {
         statusRect.size = NSMakeSize(STATUS_ITEM_VIEW_WIDTH, [[NSStatusBar systemStatusBar] thickness]);
         statusRect.origin.x = roundf((NSWidth(screenRect) - NSWidth(statusRect)) / 2);

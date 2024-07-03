@@ -1,6 +1,5 @@
 #import "BackgroundView.h"
 #import "EntryTextView.h"
-#import "StatusItemView.h"
 @class PanelController;
 @class Entry;
 
@@ -8,7 +7,7 @@
 
 @optional
 
-- (StatusItemView*)statusItemViewForPanelController:(PanelController*)controller;
+- (NSStatusBarButton*)statusItemButtonForPanelController:(PanelController*)controller;
 
 @required
 - (void)registerEntry:(NSDate*)timestamp tags:(NSArray*)tags description:(NSString*)description;

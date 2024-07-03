@@ -2,16 +2,14 @@
 
 #pragma mark -
 
-@class StatusItemView;
-
 @interface MenubarController : NSObject {
 }
 
 @property(nonatomic) BOOL hasActiveIcon;
 @property(nonatomic, retain) NSStatusItem* statusItem;
-@property(nonatomic, retain) StatusItemView* statusItemView;
 
 - (void)setError:(NSString*)error;
 - (void)setStatus:(BOOL)working;
+
 
 @end
