@@ -348,26 +348,15 @@
     [panel setFrame:statusRect display:YES];
     [panel makeKeyAndOrderFront:nil];
 
-    NSTimeInterval openDuration = OPEN_DURATION;
-
-    NSEvent* currentEvent = [NSApp currentEvent];
-    if ([currentEvent type] == NSEventTypeLeftMouseDown) {
-        NSUInteger clearFlags = ([currentEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask);
-        BOOL shiftPressed = (clearFlags == NSEventModifierFlagShift);
-        if (shiftPressed) {
-            openDuration *= 10;
-        }
-    }
-
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:openDuration];
+    [[NSAnimationContext currentContext] setDuration:OPEN_DURATION];
     [[panel animator] setFrame:panelRect display:YES];
     [[panel animator] setAlphaValue:1];
     [NSAnimationContext endGrouping];
 
     [self.inputText setTagCompletions:[self.completionTags allObjects]];
     [self parseInput];
-    [panel performSelector:@selector(makeFirstResponder:) withObject:self.inputText afterDelay:openDuration];
+    [panel performSelector:@selector(makeFirstResponder:) withObject:self.inputText afterDelay:OPEN_DURATION];
 }
 
 - (void)closePanel {
