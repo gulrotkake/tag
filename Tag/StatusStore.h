@@ -20,5 +20,6 @@
 - (void) stopPolling;
 - (void) fetchImmediatelyIfNotFetching;
 - (void) addEntry:(NSDate *)timestamp tags:(NSArray*)tags description:(NSString *)description;
+- (NSSet *) getTags;
 
 @end

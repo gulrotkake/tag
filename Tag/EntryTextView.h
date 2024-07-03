@@ -10,4 +10,6 @@
 
 @interface EntryTextView : NSTextView
 
+- (void) setTagCompletions:(NSArray *)tags;
+
 @end

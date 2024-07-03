@@ -1,6 +1,6 @@
 #import "BackgroundView.h"
 #import "StatusItemView.h"
-
+#import "EntryTextView.h"
 @class PanelController;
 @class Entry;
 
@@ -22,13 +22,13 @@
     BOOL _hasActivePanel;
     __unsafe_unretained BackgroundView *_backgroundView;
     __unsafe_unretained id<PanelControllerDelegate> _delegate;
-    __unsafe_unretained NSTextView *_inputText;
+    __unsafe_unretained EntryTextView *_inputText;
     __unsafe_unretained NSScrollView *_inputView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet BackgroundView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet NSScrollView *inputView;
-@property (nonatomic, unsafe_unretained) IBOutlet NSTextView *inputText;
+@property (nonatomic, unsafe_unretained) IBOutlet EntryTextView *inputText;
 @property (nonatomic, unsafe_unretained) IBOutlet NSTextField *sum;
 @property (nonatomic, unsafe_unretained) IBOutlet NSTextField *when;
 @property (nonatomic, unsafe_unretained) IBOutlet NSTextField *whenLabel;
@@ -43,7 +43,7 @@
 
 @property (assign, nonatomic) BOOL signedIn;
 
-- (id)initWithDelegate:(id<PanelControllerDelegate>)delegate;
+- (id)initWithDelegate:(id<PanelControllerDelegate>)delegate tags:(NSSet *)tags;
 
 - (void)openPanel;
 - (void)closePanel;

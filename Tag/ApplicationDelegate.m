@@ -90,13 +90,13 @@ void *kContextActivePanel = &kContextActivePanel;
     // Install icon into the menu bar
     firstFetch = YES;
     self.menubarController = [[[MenubarController alloc] init] autorelease];
-    [_menubarController setStatus:NO];
+    self.statusFetcher = [[[StatusStore alloc] initWithListenerAndKey:self key:key] autorelease];
     [[self panelController] setSignedIn:NO];
+    [_menubarController setStatus:NO];
     [_panelController disable];
     [_menubarController startAnimation];
-    self.statusFetcher = [[[StatusStore alloc] initWithListenerAndKey:self key:key] autorelease];
     [statusFetcher startPolling];
-    [self.statusFetcher fetchImmediatelyIfNotFetching];
+    [statusFetcher fetchImmediatelyIfNotFetching];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
@@ -119,7 +119,7 @@ void *kContextActivePanel = &kContextActivePanel;
 - (PanelController *)panelController
 {
     if (_panelController == nil) {
-        _panelController = [[PanelController alloc] initWithDelegate:self];
+        _panelController = [[PanelController alloc] initWithDelegate:self tags:[self.statusFetcher getTags]];
         [_panelController addObserver:self forKeyPath:@"hasActivePanel" options:0 context:kContextActivePanel];
     }
     return _panelController;

@@ -21,7 +21,8 @@
 @property (assign, nonatomic) BOOL disabled;
 @property (copy, nonatomic) NSString *totalString;
 @property (copy, nonatomic) NSString *lastString;
-
+@property (assign, nonatomic) BOOL backspaceDetected;
+@property (retain, nonatomic) NSSet *completionTags;
 @end
 
 @implementation PanelController
@@ -47,7 +48,7 @@
 
 #pragma mark -
 
-- (id)initWithDelegate:(id<PanelControllerDelegate>)delegate
+- (id)initWithDelegate:(id<PanelControllerDelegate>)delegate tags:(NSSet*)tags
 {
     self = [super initWithWindowNibName:@"Panel"];
     if (self != nil)
@@ -57,7 +58,7 @@
         self.disabled = YES;
         self.totalString = nil;
         self.entry = [[Entry alloc] init];
-        
+        self.completionTags = tags;
     }
     return self;
 }
@@ -68,6 +69,7 @@
     self.totalString = nil;
     self.lastString = nil;
     self.entry = nil;
+    self.completionTags = nil;
 }
 
 #pragma mark -
@@ -89,10 +91,11 @@
     NSRect panelRect = [[self window] frame];
     panelRect.size.height = POPUP_HEIGHT;
     [[self window] setFrame:panelRect display:NO];
-    
-    // Follow search string
     [self.inputText setDelegate:self];
+    [self.inputText setTagCompletions:[self.completionTags allObjects]];
+
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parseInput) name:NSControlTextDidChangeNotification object:self.inputText];
+
     if (disabled) [self disable];
     else [self enable];
 }
@@ -116,9 +119,11 @@
         [self closePanel];
         return YES;
     }
+    if (aSelector == @selector(deleteBackward:) || aSelector == @selector(deleteForward:)) {
+        self.backspaceDetected = [self.inputText textStorage].length > 0;
+    }
     return NO;
 }
-
 
 - (void) enable {
     self.disabled = NO;
@@ -257,6 +262,12 @@
 {
     BOOL textDidNotChange = [lastString isEqualToString:[[_inputText textStorage] string]];
 
+    // Nothing else changed, ignore pointless parsing.
+    if (textDidNotChange) {
+        self.backspaceDetected = false;
+        return;
+    }
+
     lastString = [[[_inputText textStorage] string] copy];
     NSString *inString = lastString;
 
@@ -269,12 +280,6 @@
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [when setStringValue:[dateFormatter stringFromDate:date]];
-
-    
-    // Nothing else changed, ignore pointless parsing.
-    if (textDidNotChange) {
-        return;
-    }
 
     NSArray *inputTags = [self parseInputForTags:inString];
     entry.tags = inputTags;
@@ -309,8 +314,9 @@
             [box setTitle:@"Enter to start working from timestamp:"];
         }
     }
-    if ([inString hasSuffix:@"#"]) {
-        NSLog(@"Completions");
+    if (self.backspaceDetected) {
+        self.backspaceDetected = false;
+    } else if ([inString hasSuffix:@"#"]) {
         [self.inputText complete:nil];
     }
 }
@@ -385,6 +391,7 @@
     [[panel animator] setAlphaValue:1];
     [NSAnimationContext endGrouping];
     
+    [self.inputText setTagCompletions:[self.completionTags allObjects]];
     [self parseInput];
     [panel performSelector:@selector(makeFirstResponder:) withObject:self.inputText afterDelay:openDuration];
 }

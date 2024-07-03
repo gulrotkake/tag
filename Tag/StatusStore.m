@@ -16,6 +16,7 @@
 @property (assign) NSUInteger fetchStatus;
 @property (retain) NSString *filename;
 @property (retain) NSTimer *timer;
+@property (retain) NSMutableSet<NSString*> *tags;
 @end
 
 @implementation StatusStore
@@ -47,6 +48,9 @@ static NSString* mkdir(NSString *filePath) {
     if (error) {
         [self.listener failedMiserably:error];
     }
+
+    self.tags = [[[NSMutableSet alloc] init] autorelease];
+    [self loadTags];
     return self;
 }
 
@@ -57,6 +61,23 @@ static NSString* mkdir(NSString *filePath) {
     self.timer = nil;
     self.filename = nil;
     [super dealloc];
+}
+
+- (NSSet *)getTags {
+    return self.tags;
+}
+
+- (void) loadTags {
+    NSArray *csvData = [self getCSVData];
+    for (id line in csvData) {
+        NSString *tagString = [line objectAtIndex:2];
+        NSArray* components = [tagString componentsSeparatedByString:@" "];
+        for (NSString* tag in components) {
+            if ([tag length] > 0) {
+                [self.tags addObject:tag];
+            }
+        }
+    }
 }
 
 + (NSString*) removeDoubleQuotes:(NSString*) input {
@@ -87,6 +108,7 @@ static NSString* mkdir(NSString *filePath) {
 
     // If tags or description are set, we'll be writing a brand new field.
     if ([tags count] > 0 || [description length] > 0) {
+        [self.tags addObjectsFromArray:tags];
         NSOutputStream *csvStream = [NSOutputStream outputStreamToFileAtPath:self.filename append:YES];
         CHCSVWriter *writer = [[[CHCSVWriter alloc] initWithOutputStream:csvStream encoding:NSUTF8StringEncoding delimiter:','] autorelease];
         [writer writeLineOfFields:[NSArray arrayWithObjects:[Utilities getUTCDate:timestamp], @"", [tags componentsJoinedByString:@" "], description, nil]];
