@@ -11,6 +11,8 @@
 		4C2D4873155DCCB700327391 /* StatusStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D4872155DCCB700327391 /* StatusStore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C2D4884155DE41F00327391 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D4883155DE41F00327391 /* Entry.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C60509E155F091D00351D19 /* StatusInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C60509D155F091D00351D19 /* StatusInactive.png */; };
+		4C7016FF2C36B9D9001DCB15 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7016FE2C36B9D9001DCB15 /* Panel.xib */; };
+		4C7017022C36B9E0001DCB15 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7017002C36B9E0001DCB15 /* MainMenu.xib */; };
 		4CBB507F156EDDC00038C429 /* FocusableScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB507E156EDDC00038C429 /* FocusableScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4CBB5083156EF79B0038C429 /* EntryTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB5082156EF79B0038C429 /* EntryTextView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4CD461B01559D392000133D6 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD461AF1559D392000133D6 /* Utilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -22,10 +24,8 @@
 		DD4F7C0913C30F9F00825C6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F7C0813C30F9F00825C6E /* Cocoa.framework */; };
 		DD4F7C1513C30F9F00825C6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C1413C30F9F00825C6E /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C1C13C30F9F00825C6E /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C1B13C30F9F00825C6E /* ApplicationDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DD4F7C1F13C30F9F00825C6E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F7C1D13C30F9F00825C6E /* MainMenu.xib */; };
 		DD4F7C3813C317A500825C6E /* MenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C3713C317A500825C6E /* MenubarController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C3F13C318D600825C6E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C3E13C318D600825C6E /* PanelController.m */; };
-		DD4F7C4113C31B4A00825C6E /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F7C4013C31B4A00825C6E /* Panel.xib */; };
 		DD4F7C4413C31BD200825C6E /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C4313C31BD200825C6E /* Panel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C4713C3208500825C6E /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C4613C3208500825C6E /* BackgroundView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C4B13C322FA00825C6E /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F7C4913C322FA00825C6E /* Status.png */; };
@@ -50,6 +50,8 @@
 		4C2D4882155DE41F00327391 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		4C2D4883155DE41F00327391 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		4C60509D155F091D00351D19 /* StatusInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusInactive.png; path = Tag/StatusInactive.png; sourceTree = "<group>"; };
+		4C7016FE2C36B9D9001DCB15 /* Panel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Panel.xib; path = xib/Panel.xib; sourceTree = "<group>"; };
+		4C7017012C36B9E0001DCB15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = xib/en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4CBB507D156EDDC00038C429 /* FocusableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusableScrollView.h; sourceTree = "<group>"; };
 		4CBB507E156EDDC00038C429 /* FocusableScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusableScrollView.m; sourceTree = "<group>"; };
 		4CBB5081156EF79B0038C429 /* EntryTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTextView.h; sourceTree = "<group>"; };
@@ -75,12 +77,10 @@
 		DD4F7C1613C30F9F00825C6E /* Tag-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tag-Prefix.pch"; sourceTree = "<group>"; };
 		DD4F7C1A13C30F9F00825C6E /* ApplicationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
 		DD4F7C1B13C30F9F00825C6E /* ApplicationDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationDelegate.m; sourceTree = "<group>"; };
-		DD4F7C1E13C30F9F00825C6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DD4F7C3613C317A500825C6E /* MenubarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenubarController.h; sourceTree = "<group>"; };
 		DD4F7C3713C317A500825C6E /* MenubarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenubarController.m; sourceTree = "<group>"; };
 		DD4F7C3D13C318D600825C6E /* PanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelController.h; sourceTree = "<group>"; };
 		DD4F7C3E13C318D600825C6E /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
-		DD4F7C4013C31B4A00825C6E /* Panel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Panel.xib; path = Tag/Panel.xib; sourceTree = "<group>"; };
 		DD4F7C4213C31BD200825C6E /* Panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
 		DD4F7C4313C31BD200825C6E /* Panel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
 		DD4F7C4513C3208500825C6E /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
@@ -198,8 +198,8 @@
 		DD4F7C2913C3124300825C6E /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				DD4F7C1D13C30F9F00825C6E /* MainMenu.xib */,
-				DD4F7C4013C31B4A00825C6E /* Panel.xib */,
+				4C7017002C36B9E0001DCB15 /* MainMenu.xib */,
+				4C7016FE2C36B9D9001DCB15 /* Panel.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -284,11 +284,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C27C19F1573C50F00AD2F07 /* Icons.icns in Resources */,
-				DD4F7C1F13C30F9F00825C6E /* MainMenu.xib in Resources */,
-				DD4F7C4113C31B4A00825C6E /* Panel.xib in Resources */,
+				4C7016FF2C36B9D9001DCB15 /* Panel.xib in Resources */,
 				DD4F7C4B13C322FA00825C6E /* Status.png in Resources */,
 				4C60509E155F091D00351D19 /* StatusInactive.png in Resources */,
 				4CE55D811566A0A60066A842 /* StatusFailed.png in Resources */,
+				4C7017022C36B9E0001DCB15 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,13 +319,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DD4F7C1D13C30F9F00825C6E /* MainMenu.xib */ = {
+		4C7017002C36B9E0001DCB15 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DD4F7C1E13C30F9F00825C6E /* en */,
+				4C7017012C36B9E0001DCB15 /* en */,
 			);
 			name = MainMenu.xib;
-			path = Tag;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
