@@ -9,6 +9,8 @@
 @property(retain, nonatomic) StatusStore* statusFetcher;
 @property(assign, nonatomic) BOOL firstFetch;
 @property(retain) NSString* key;
+@property (retain, nonatomic) NSMenu *statusMenu;
+
 @end
 
 @implementation ApplicationDelegate
@@ -25,6 +27,7 @@
     self.statusFetcher = nil;
     self.menubarController = nil;
     self.panelController = nil;
+    self.statusMenu = nil;
     self.key = nil;
     [super dealloc];
 }
@@ -85,11 +88,18 @@ void* kContextActivePanel = &kContextActivePanel;
     firstFetch = YES;
     self.menubarController = [[[MenubarController alloc] init] autorelease];
     self.statusFetcher = [[[StatusStore alloc] initWithListenerAndKey:self key:key] autorelease];
+    self.statusMenu = [[[NSMenu alloc] init] autorelease];
+    [self.statusMenu addItemWithTitle:@"Quit" action:@selector(quitClicked) keyEquivalent:@"q"];
     [[self panelController] setSignedIn:NO];
     [_menubarController setStatus:NO];
     [_panelController disable];
     [statusFetcher startPolling];
     [statusFetcher fetchImmediatelyIfNotFetching];
+}
+
+
+- (void) quitClicked {
+    [NSApp terminate:self];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication*)sender {
@@ -101,8 +111,15 @@ void* kContextActivePanel = &kContextActivePanel;
 #pragma mark - Actions
 
 - (IBAction)togglePanel:(id)sender {
-    self.menubarController.hasActiveIcon = !self.menubarController.hasActiveIcon;
-    self.panelController.hasActivePanel = self.menubarController.hasActiveIcon;
+    NSEvent *event = NSApp.currentEvent;
+    if (event.type == NSEventTypeRightMouseDown || (event.modifierFlags & NSEventModifierFlagOption)) {
+        self.menubarController.statusItem.menu = self.statusMenu;
+        [self.menubarController.statusItem.button performClick:nil];
+        self.menubarController.statusItem.menu = nil;
+    } else {
+        self.menubarController.hasActiveIcon = !self.menubarController.hasActiveIcon;
+        self.panelController.hasActivePanel = self.menubarController.hasActiveIcon;
+    }
 }
 
 #pragma mark - Public accessors
