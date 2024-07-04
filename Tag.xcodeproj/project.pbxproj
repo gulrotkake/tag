@@ -161,6 +161,12 @@
 			isa = PBXGroup;
 			children = (
 				DD4F7C1613C30F9F00825C6E /* Tag-Prefix.pch */,
+				4CD461AE1559D392000133D6 /* Utilities.h */,
+				4CD461AF1559D392000133D6 /* Utilities.m */,
+				4C2D4871155DCCB700327391 /* StatusStore.h */,
+				4C2D4872155DCCB700327391 /* StatusStore.m */,
+				4C2D4882155DE41F00327391 /* Entry.h */,
+				4C2D4883155DE41F00327391 /* Entry.m */,
 				DD4F7C1413C30F9F00825C6E /* main.m */,
 				4CE55D831566B13F0066A842 /* config.h */,
 			);
@@ -176,12 +182,6 @@
 				DD4F7C3713C317A500825C6E /* MenubarController.m */,
 				DD4F7C3D13C318D600825C6E /* PanelController.h */,
 				DD4F7C3E13C318D600825C6E /* PanelController.m */,
-				4CD461AE1559D392000133D6 /* Utilities.h */,
-				4CD461AF1559D392000133D6 /* Utilities.m */,
-				4C2D4871155DCCB700327391 /* StatusStore.h */,
-				4C2D4872155DCCB700327391 /* StatusStore.m */,
-				4C2D4882155DE41F00327391 /* Entry.h */,
-				4C2D4883155DE41F00327391 /* Entry.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
