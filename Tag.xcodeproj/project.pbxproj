@@ -20,11 +20,11 @@
 		4C7017162C36BAC8001DCB15 /* MenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017122C36BAC8001DCB15 /* MenubarController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C7017172C36BAC8001DCB15 /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017132C36BAC8001DCB15 /* PanelController.m */; };
 		4C7017182C36BAC8001DCB15 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017152C36BAC8001DCB15 /* ApplicationDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4C70171F2C36BB2F001DCB15 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70171A2C36BB2F001DCB15 /* CHCSVParser.m */; };
+		4C7017202C36BB2F001DCB15 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70171B2C36BB2F001DCB15 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4C7017212C36BB2F001DCB15 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70171D2C36BB2F001DCB15 /* DDHotKeyCenter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4CD461B01559D392000133D6 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD461AF1559D392000133D6 /* Utilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4CD461B71559D3B9000133D6 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD461B21559D3B9000133D6 /* DDHotKeyCenter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4CD461B81559D3B9000133D6 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD461B41559D3B9000133D6 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4CD461C21559D3E4000133D6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD461C11559D3E3000133D6 /* Carbon.framework */; };
-		4CD6BD7F2C239A550082F6DA /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6BD7D2C239A550082F6DA /* CHCSVParser.m */; };
 		4CE55D811566A0A60066A842 /* StatusFailed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE55D801566A0A60066A842 /* StatusFailed.png */; };
 		DD4F7C0913C30F9F00825C6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F7C0813C30F9F00825C6E /* Cocoa.framework */; };
 		DD4F7C1513C30F9F00825C6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C1413C30F9F00825C6E /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -67,15 +67,15 @@
 		4C7017132C36BAC8001DCB15 /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelController.m; path = src/controllers/PanelController.m; sourceTree = SOURCE_ROOT; };
 		4C7017142C36BAC8001DCB15 /* PanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelController.h; path = src/controllers/PanelController.h; sourceTree = SOURCE_ROOT; };
 		4C7017152C36BAC8001DCB15 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplicationDelegate.m; path = src/controllers/ApplicationDelegate.m; sourceTree = SOURCE_ROOT; };
+		4C7017192C36BB2F001DCB15 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHCSVParser.h; path = src/external/CHCSVParser.h; sourceTree = SOURCE_ROOT; };
+		4C70171A2C36BB2F001DCB15 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHCSVParser.m; path = src/external/CHCSVParser.m; sourceTree = SOURCE_ROOT; };
+		4C70171B2C36BB2F001DCB15 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISO8601DateFormatter.m; path = src/external/ISO8601DateFormatter.m; sourceTree = SOURCE_ROOT; };
+		4C70171C2C36BB2F001DCB15 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = src/external/ISO8601DateFormatter.h; sourceTree = SOURCE_ROOT; };
+		4C70171D2C36BB2F001DCB15 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHotKeyCenter.m; path = src/external/DDHotKeyCenter.m; sourceTree = SOURCE_ROOT; };
+		4C70171E2C36BB2F001DCB15 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHotKeyCenter.h; path = src/external/DDHotKeyCenter.h; sourceTree = SOURCE_ROOT; };
 		4CD461AE1559D392000133D6 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		4CD461AF1559D392000133D6 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
-		4CD461B11559D3B9000133D6 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
-		4CD461B21559D3B9000133D6 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
-		4CD461B31559D3B9000133D6 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
-		4CD461B41559D3B9000133D6 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		4CD461C11559D3E3000133D6 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		4CD6BD7D2C239A550082F6DA /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
-		4CD6BD7E2C239A550082F6DA /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		4CE55D801566A0A60066A842 /* StatusFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusFailed.png; path = Tag/StatusFailed.png; sourceTree = "<group>"; };
 		4CE55D831566B13F0066A842 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		DD4F7C0413C30F9F00825C6E /* Tag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,12 +105,12 @@
 		4C7016FD2C36B933001DCB15 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				4CD6BD7E2C239A550082F6DA /* CHCSVParser.h */,
-				4CD6BD7D2C239A550082F6DA /* CHCSVParser.m */,
-				4CD461B11559D3B9000133D6 /* DDHotKeyCenter.h */,
-				4CD461B21559D3B9000133D6 /* DDHotKeyCenter.m */,
-				4CD461B31559D3B9000133D6 /* ISO8601DateFormatter.h */,
-				4CD461B41559D3B9000133D6 /* ISO8601DateFormatter.m */,
+				4C7017192C36BB2F001DCB15 /* CHCSVParser.h */,
+				4C70171A2C36BB2F001DCB15 /* CHCSVParser.m */,
+				4C70171E2C36BB2F001DCB15 /* DDHotKeyCenter.h */,
+				4C70171D2C36BB2F001DCB15 /* DDHotKeyCenter.m */,
+				4C70171C2C36BB2F001DCB15 /* ISO8601DateFormatter.h */,
+				4C70171B2C36BB2F001DCB15 /* ISO8601DateFormatter.m */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -306,13 +306,13 @@
 				4C70170B2C36BA57001DCB15 /* BackgroundView.m in Sources */,
 				4C7017172C36BAC8001DCB15 /* PanelController.m in Sources */,
 				DD4F7C1513C30F9F00825C6E /* main.m in Sources */,
-				4CD6BD7F2C239A550082F6DA /* CHCSVParser.m in Sources */,
 				4CD461B01559D392000133D6 /* Utilities.m in Sources */,
-				4CD461B71559D3B9000133D6 /* DDHotKeyCenter.m in Sources */,
+				4C7017212C36BB2F001DCB15 /* DDHotKeyCenter.m in Sources */,
 				4C70170E2C36BA57001DCB15 /* Panel.m in Sources */,
+				4C7017202C36BB2F001DCB15 /* ISO8601DateFormatter.m in Sources */,
 				4C7017182C36BAC8001DCB15 /* ApplicationDelegate.m in Sources */,
+				4C70171F2C36BB2F001DCB15 /* CHCSVParser.m in Sources */,
 				4C7017162C36BAC8001DCB15 /* MenubarController.m in Sources */,
-				4CD461B81559D3B9000133D6 /* ISO8601DateFormatter.m in Sources */,
 				4C2D4873155DCCB700327391 /* StatusStore.m in Sources */,
 				4C2D4884155DE41F00327391 /* Entry.m in Sources */,
 			);
