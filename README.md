@@ -8,11 +8,11 @@ Tag is a small utility to track working hours. Entries are stored in `~/.tag/tag
 
 - Ctrl-Command-Space is the hotkey that triggeres the task dialog, allowing quickly starting/modifying/finishing tasks.
 
-- Typing a string starts working on the task from the current time. If the string is prefixed with a timestamp, start is set to the prefixed timestamp:
+- Typing a string starts working on a task from the current time. If the string is prefixed with a timestamp, start is set to the prefixed timestamp:
 
 <img width="337" alt="prefix-timestamp" src="https://github.com/gulrotkake/tag/assets/539077/cd64efe8-350b-4a56-a718-8a7526c139e5">
 
-- When typing `#` a tag is created, a string can contain multiple tags and these are stored separately in the CSV-file. `#` in the UI will trigger completion on previously created tags:
+- When typing `#` a tag is created, a string can contain multiple tags and these are stored separately in the CSV-file. `#` in the UI will trigger completion on known tags:
 
 <img width="332" alt="completion" src="https://github.com/gulrotkake/tag/assets/539077/30f99bd3-2298-400d-bc1b-8267844a8af2">
 
