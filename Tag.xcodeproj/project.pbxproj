@@ -101,6 +101,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C7016FD2C36B933001DCB15 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				4CD6BD7E2C239A550082F6DA /* CHCSVParser.h */,
+				4CD6BD7D2C239A550082F6DA /* CHCSVParser.m */,
+				4CD461B11559D3B9000133D6 /* DDHotKeyCenter.h */,
+				4CD461B21559D3B9000133D6 /* DDHotKeyCenter.m */,
+				4CD461B31559D3B9000133D6 /* ISO8601DateFormatter.h */,
+				4CD461B41559D3B9000133D6 /* ISO8601DateFormatter.m */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
 		DD4F7BF913C30F9F00825C6E = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +148,7 @@
 		DD4F7C0E13C30F9F00825C6E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4C7016FD2C36B933001DCB15 /* External */,
 				DD4F7C2613C311DF00825C6E /* Controllers */,
 				DD4F7C3913C317EC00825C6E /* Views */,
 				DD4F7C0F13C30F9F00825C6E /* Supporting Files */,
@@ -164,12 +178,6 @@
 				DD4F7C3E13C318D600825C6E /* PanelController.m */,
 				4CD461AE1559D392000133D6 /* Utilities.h */,
 				4CD461AF1559D392000133D6 /* Utilities.m */,
-				4CD6BD7E2C239A550082F6DA /* CHCSVParser.h */,
-				4CD6BD7D2C239A550082F6DA /* CHCSVParser.m */,
-				4CD461B11559D3B9000133D6 /* DDHotKeyCenter.h */,
-				4CD461B21559D3B9000133D6 /* DDHotKeyCenter.m */,
-				4CD461B31559D3B9000133D6 /* ISO8601DateFormatter.h */,
-				4CD461B41559D3B9000133D6 /* ISO8601DateFormatter.m */,
 				4C2D4871155DCCB700327391 /* StatusStore.h */,
 				4C2D4872155DCCB700327391 /* StatusStore.m */,
 				4C2D4882155DE41F00327391 /* Entry.h */,
