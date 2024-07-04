@@ -368,6 +368,8 @@
     dispatch_after(dispatch_walltime(NULL, NSEC_PER_SEC * CLOSE_DURATION * 2), dispatch_get_main_queue(), ^{
       [self.window orderOut:nil];
     });
+
+    [NSApp hide:self];
 }
 
 @end
