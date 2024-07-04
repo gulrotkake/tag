@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C27C19F1573C50F00AD2F07 /* Icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4C27C19E1573C50F00AD2F07 /* Icons.icns */; };
-		4C60509E155F091D00351D19 /* StatusInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C60509D155F091D00351D19 /* StatusInactive.png */; };
 		4C7016FF2C36B9D9001DCB15 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7016FE2C36B9D9001DCB15 /* Panel.xib */; };
 		4C7017022C36B9E0001DCB15 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7017002C36B9E0001DCB15 /* MainMenu.xib */; };
 		4C70170B2C36BA57001DCB15 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017032C36BA57001DCB15 /* BackgroundView.m */; };
@@ -25,10 +23,12 @@
 		4C70172C2C36BBCF001DCB15 /* StatusStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017252C36BBCF001DCB15 /* StatusStore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C70172D2C36BBCF001DCB15 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017262C36BBCF001DCB15 /* Entry.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C70172E2C36BBCF001DCB15 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70172A2C36BBCF001DCB15 /* Utilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4C7017342C36BC6F001DCB15 /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7017302C36BC6F001DCB15 /* Status.png */; };
+		4C7017352C36BC6F001DCB15 /* Icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4C7017312C36BC6F001DCB15 /* Icons.icns */; };
+		4C7017362C36BC6F001DCB15 /* StatusFailed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7017322C36BC6F001DCB15 /* StatusFailed.png */; };
+		4C7017372C36BC6F001DCB15 /* StatusInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7017332C36BC6F001DCB15 /* StatusInactive.png */; };
 		4CD461C21559D3E4000133D6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD461C11559D3E3000133D6 /* Carbon.framework */; };
-		4CE55D811566A0A60066A842 /* StatusFailed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE55D801566A0A60066A842 /* StatusFailed.png */; };
 		DD4F7C0913C30F9F00825C6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F7C0813C30F9F00825C6E /* Cocoa.framework */; };
-		DD4F7C4B13C322FA00825C6E /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F7C4913C322FA00825C6E /* Status.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +44,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4C27C19E1573C50F00AD2F07 /* Icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icons.icns; sourceTree = "<group>"; };
-		4C60509D155F091D00351D19 /* StatusInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusInactive.png; path = Tag/StatusInactive.png; sourceTree = "<group>"; };
 		4C7016FE2C36B9D9001DCB15 /* Panel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Panel.xib; path = xib/Panel.xib; sourceTree = "<group>"; };
 		4C7017012C36B9E0001DCB15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = xib/en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4C7017032C36BA57001DCB15 /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgroundView.m; path = src/views/BackgroundView.m; sourceTree = SOURCE_ROOT; };
@@ -79,15 +77,17 @@
 		4C7017292C36BBCF001DCB15 /* StatusStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusStore.h; path = src/StatusStore.h; sourceTree = SOURCE_ROOT; };
 		4C70172A2C36BBCF001DCB15 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utilities.m; path = src/Utilities.m; sourceTree = SOURCE_ROOT; };
 		4C70172F2C36BC1C001DCB15 /* Entry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Entry.m; path = src/Entry.m; sourceTree = "<group>"; };
+		4C7017302C36BC6F001DCB15 /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Status.png; path = graphics/Status.png; sourceTree = "<group>"; };
+		4C7017312C36BC6F001DCB15 /* Icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icons.icns; path = graphics/Icons.icns; sourceTree = "<group>"; };
+		4C7017322C36BC6F001DCB15 /* StatusFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusFailed.png; path = graphics/StatusFailed.png; sourceTree = "<group>"; };
+		4C7017332C36BC6F001DCB15 /* StatusInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusInactive.png; path = graphics/StatusInactive.png; sourceTree = "<group>"; };
 		4CD461C11559D3E3000133D6 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		4CE55D801566A0A60066A842 /* StatusFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusFailed.png; path = Tag/StatusFailed.png; sourceTree = "<group>"; };
 		DD4F7C0413C30F9F00825C6E /* Tag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4F7C0813C30F9F00825C6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DD4F7C0B13C30F9F00825C6E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		DD4F7C0C13C30F9F00825C6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DD4F7C0D13C30F9F00825C6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DD4F7C1013C30F9F00825C6E /* Tag-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tag-Info.plist"; path = "Tag/Tag-Info.plist"; sourceTree = "<group>"; };
-		DD4F7C4913C322FA00825C6E /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Status.png; path = Tag/Status.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,10 +226,10 @@
 		DD4F7C4813C322D800825C6E /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				4C27C19E1573C50F00AD2F07 /* Icons.icns */,
-				4CE55D801566A0A60066A842 /* StatusFailed.png */,
-				4C60509D155F091D00351D19 /* StatusInactive.png */,
-				DD4F7C4913C322FA00825C6E /* Status.png */,
+				4C7017312C36BC6F001DCB15 /* Icons.icns */,
+				4C7017302C36BC6F001DCB15 /* Status.png */,
+				4C7017322C36BC6F001DCB15 /* StatusFailed.png */,
+				4C7017332C36BC6F001DCB15 /* StatusInactive.png */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -287,12 +287,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C27C19F1573C50F00AD2F07 /* Icons.icns in Resources */,
+				4C7017342C36BC6F001DCB15 /* Status.png in Resources */,
+				4C7017352C36BC6F001DCB15 /* Icons.icns in Resources */,
 				4C7016FF2C36B9D9001DCB15 /* Panel.xib in Resources */,
-				DD4F7C4B13C322FA00825C6E /* Status.png in Resources */,
-				4C60509E155F091D00351D19 /* StatusInactive.png in Resources */,
-				4CE55D811566A0A60066A842 /* StatusFailed.png in Resources */,
 				4C7017022C36B9E0001DCB15 /* MainMenu.xib in Resources */,
+				4C7017372C36BC6F001DCB15 /* StatusInactive.png in Resources */,
+				4C7017362C36BC6F001DCB15 /* StatusFailed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
