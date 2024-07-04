@@ -54,7 +54,6 @@
 		4C7017082C36BA57001DCB15 /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundView.h; path = src/views/BackgroundView.h; sourceTree = SOURCE_ROOT; };
 		4C7017092C36BA57001DCB15 /* Panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Panel.h; path = src/views/Panel.h; sourceTree = SOURCE_ROOT; };
 		4C70170A2C36BA57001DCB15 /* Panel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Panel.m; path = src/views/Panel.m; sourceTree = SOURCE_ROOT; };
-		4C70170F2C36BA71001DCB15 /* EntryTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EntryTextView.m; path = src/views/EntryTextView.m; sourceTree = "<group>"; };
 		4C7017102C36BAC8001DCB15 /* MenubarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenubarController.h; path = src/controllers/MenubarController.h; sourceTree = SOURCE_ROOT; };
 		4C7017112C36BAC8001DCB15 /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationDelegate.h; path = src/controllers/ApplicationDelegate.h; sourceTree = SOURCE_ROOT; };
 		4C7017122C36BAC8001DCB15 /* MenubarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenubarController.m; path = src/controllers/MenubarController.m; sourceTree = SOURCE_ROOT; };
@@ -76,7 +75,6 @@
 		4C7017282C36BBCF001DCB15 /* Tag-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag-Prefix.pch"; path = "src/Tag-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4C7017292C36BBCF001DCB15 /* StatusStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusStore.h; path = src/StatusStore.h; sourceTree = SOURCE_ROOT; };
 		4C70172A2C36BBCF001DCB15 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utilities.m; path = src/Utilities.m; sourceTree = SOURCE_ROOT; };
-		4C70172F2C36BC1C001DCB15 /* Entry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Entry.m; path = src/Entry.m; sourceTree = "<group>"; };
 		4C7017302C36BC6F001DCB15 /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Status.png; path = graphics/Status.png; sourceTree = "<group>"; };
 		4C7017312C36BC6F001DCB15 /* Icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icons.icns; path = graphics/Icons.icns; sourceTree = "<group>"; };
 		4C7017322C36BC6F001DCB15 /* StatusFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusFailed.png; path = graphics/StatusFailed.png; sourceTree = "<group>"; };
@@ -119,8 +117,6 @@
 		DD4F7BF913C30F9F00825C6E = {
 			isa = PBXGroup;
 			children = (
-				4C70172F2C36BC1C001DCB15 /* Entry.m */,
-				4C70170F2C36BA71001DCB15 /* EntryTextView.m */,
 				DD4F7C0E13C30F9F00825C6E /* Sources */,
 				DD4F7C2813C3123E00825C6E /* User Interface */,
 				DD4F7C0713C30F9F00825C6E /* Frameworks */,
