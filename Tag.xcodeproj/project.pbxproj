@@ -13,8 +13,10 @@
 		4C60509E155F091D00351D19 /* StatusInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C60509D155F091D00351D19 /* StatusInactive.png */; };
 		4C7016FF2C36B9D9001DCB15 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7016FE2C36B9D9001DCB15 /* Panel.xib */; };
 		4C7017022C36B9E0001DCB15 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7017002C36B9E0001DCB15 /* MainMenu.xib */; };
-		4CBB507F156EDDC00038C429 /* FocusableScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB507E156EDDC00038C429 /* FocusableScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4CBB5083156EF79B0038C429 /* EntryTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB5082156EF79B0038C429 /* EntryTextView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4C70170B2C36BA57001DCB15 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017032C36BA57001DCB15 /* BackgroundView.m */; };
+		4C70170C2C36BA57001DCB15 /* EntryTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017052C36BA57001DCB15 /* EntryTextView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4C70170D2C36BA57001DCB15 /* FocusableScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7017072C36BA57001DCB15 /* FocusableScrollView.m */; };
+		4C70170E2C36BA57001DCB15 /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70170A2C36BA57001DCB15 /* Panel.m */; };
 		4CD461B01559D392000133D6 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD461AF1559D392000133D6 /* Utilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4CD461B71559D3B9000133D6 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD461B21559D3B9000133D6 /* DDHotKeyCenter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4CD461B81559D3B9000133D6 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD461B41559D3B9000133D6 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -26,8 +28,6 @@
 		DD4F7C1C13C30F9F00825C6E /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C1B13C30F9F00825C6E /* ApplicationDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C3813C317A500825C6E /* MenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C3713C317A500825C6E /* MenubarController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C3F13C318D600825C6E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C3E13C318D600825C6E /* PanelController.m */; };
-		DD4F7C4413C31BD200825C6E /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C4313C31BD200825C6E /* Panel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DD4F7C4713C3208500825C6E /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C4613C3208500825C6E /* BackgroundView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C4B13C322FA00825C6E /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F7C4913C322FA00825C6E /* Status.png */; };
 /* End PBXBuildFile section */
 
@@ -52,10 +52,15 @@
 		4C60509D155F091D00351D19 /* StatusInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusInactive.png; path = Tag/StatusInactive.png; sourceTree = "<group>"; };
 		4C7016FE2C36B9D9001DCB15 /* Panel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Panel.xib; path = xib/Panel.xib; sourceTree = "<group>"; };
 		4C7017012C36B9E0001DCB15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = xib/en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		4CBB507D156EDDC00038C429 /* FocusableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusableScrollView.h; sourceTree = "<group>"; };
-		4CBB507E156EDDC00038C429 /* FocusableScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusableScrollView.m; sourceTree = "<group>"; };
-		4CBB5081156EF79B0038C429 /* EntryTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTextView.h; sourceTree = "<group>"; };
-		4CBB5082156EF79B0038C429 /* EntryTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTextView.m; sourceTree = "<group>"; };
+		4C7017032C36BA57001DCB15 /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgroundView.m; path = src/views/BackgroundView.m; sourceTree = SOURCE_ROOT; };
+		4C7017042C36BA57001DCB15 /* EntryTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryTextView.h; path = src/views/EntryTextView.h; sourceTree = SOURCE_ROOT; };
+		4C7017052C36BA57001DCB15 /* EntryTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryTextView.m; path = src/views/EntryTextView.m; sourceTree = SOURCE_ROOT; };
+		4C7017062C36BA57001DCB15 /* FocusableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FocusableScrollView.h; path = src/views/FocusableScrollView.h; sourceTree = SOURCE_ROOT; };
+		4C7017072C36BA57001DCB15 /* FocusableScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FocusableScrollView.m; path = src/views/FocusableScrollView.m; sourceTree = SOURCE_ROOT; };
+		4C7017082C36BA57001DCB15 /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundView.h; path = src/views/BackgroundView.h; sourceTree = SOURCE_ROOT; };
+		4C7017092C36BA57001DCB15 /* Panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Panel.h; path = src/views/Panel.h; sourceTree = SOURCE_ROOT; };
+		4C70170A2C36BA57001DCB15 /* Panel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Panel.m; path = src/views/Panel.m; sourceTree = SOURCE_ROOT; };
+		4C70170F2C36BA71001DCB15 /* EntryTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EntryTextView.m; path = src/views/EntryTextView.m; sourceTree = "<group>"; };
 		4CD461AE1559D392000133D6 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		4CD461AF1559D392000133D6 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		4CD461B11559D3B9000133D6 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
@@ -81,10 +86,6 @@
 		DD4F7C3713C317A500825C6E /* MenubarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenubarController.m; sourceTree = "<group>"; };
 		DD4F7C3D13C318D600825C6E /* PanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelController.h; sourceTree = "<group>"; };
 		DD4F7C3E13C318D600825C6E /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
-		DD4F7C4213C31BD200825C6E /* Panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
-		DD4F7C4313C31BD200825C6E /* Panel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
-		DD4F7C4513C3208500825C6E /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
-		DD4F7C4613C3208500825C6E /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		DD4F7C4913C322FA00825C6E /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Status.png; path = Tag/Status.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +118,7 @@
 		DD4F7BF913C30F9F00825C6E = {
 			isa = PBXGroup;
 			children = (
+				4C70170F2C36BA71001DCB15 /* EntryTextView.m */,
 				DD4F7C0E13C30F9F00825C6E /* Sources */,
 				DD4F7C2813C3123E00825C6E /* User Interface */,
 				DD4F7C0713C30F9F00825C6E /* Frameworks */,
@@ -207,14 +209,14 @@
 		DD4F7C3913C317EC00825C6E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DD4F7C4213C31BD200825C6E /* Panel.h */,
-				DD4F7C4313C31BD200825C6E /* Panel.m */,
-				DD4F7C4513C3208500825C6E /* BackgroundView.h */,
-				DD4F7C4613C3208500825C6E /* BackgroundView.m */,
-				4CBB507D156EDDC00038C429 /* FocusableScrollView.h */,
-				4CBB507E156EDDC00038C429 /* FocusableScrollView.m */,
-				4CBB5081156EF79B0038C429 /* EntryTextView.h */,
-				4CBB5082156EF79B0038C429 /* EntryTextView.m */,
+				4C7017082C36BA57001DCB15 /* BackgroundView.h */,
+				4C7017032C36BA57001DCB15 /* BackgroundView.m */,
+				4C7017042C36BA57001DCB15 /* EntryTextView.h */,
+				4C7017052C36BA57001DCB15 /* EntryTextView.m */,
+				4C7017062C36BA57001DCB15 /* FocusableScrollView.h */,
+				4C7017072C36BA57001DCB15 /* FocusableScrollView.m */,
+				4C7017092C36BA57001DCB15 /* Panel.h */,
+				4C70170A2C36BA57001DCB15 /* Panel.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -299,20 +301,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C70170C2C36BA57001DCB15 /* EntryTextView.m in Sources */,
+				4C70170D2C36BA57001DCB15 /* FocusableScrollView.m in Sources */,
+				4C70170B2C36BA57001DCB15 /* BackgroundView.m in Sources */,
 				DD4F7C1513C30F9F00825C6E /* main.m in Sources */,
 				DD4F7C1C13C30F9F00825C6E /* ApplicationDelegate.m in Sources */,
 				DD4F7C3813C317A500825C6E /* MenubarController.m in Sources */,
 				4CD6BD7F2C239A550082F6DA /* CHCSVParser.m in Sources */,
 				DD4F7C3F13C318D600825C6E /* PanelController.m in Sources */,
-				DD4F7C4413C31BD200825C6E /* Panel.m in Sources */,
-				DD4F7C4713C3208500825C6E /* BackgroundView.m in Sources */,
 				4CD461B01559D392000133D6 /* Utilities.m in Sources */,
 				4CD461B71559D3B9000133D6 /* DDHotKeyCenter.m in Sources */,
+				4C70170E2C36BA57001DCB15 /* Panel.m in Sources */,
 				4CD461B81559D3B9000133D6 /* ISO8601DateFormatter.m in Sources */,
 				4C2D4873155DCCB700327391 /* StatusStore.m in Sources */,
 				4C2D4884155DE41F00327391 /* Entry.m in Sources */,
-				4CBB507F156EDDC00038C429 /* FocusableScrollView.m in Sources */,
-				4CBB5083156EF79B0038C429 /* EntryTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
