@@ -29,7 +29,6 @@
 		DD4F7C4413C31BD200825C6E /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C4313C31BD200825C6E /* Panel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C4713C3208500825C6E /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C4613C3208500825C6E /* BackgroundView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD4F7C4B13C322FA00825C6E /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F7C4913C322FA00825C6E /* Status.png */; };
-		DD4F7C4C13C322FA00825C6E /* StatusHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F7C4A13C322FA00825C6E /* StatusHighlighted.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,7 +86,6 @@
 		DD4F7C4513C3208500825C6E /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		DD4F7C4613C3208500825C6E /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		DD4F7C4913C322FA00825C6E /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Status.png; path = Tag/Status.png; sourceTree = "<group>"; };
-		DD4F7C4A13C322FA00825C6E /* StatusHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusHighlighted.png; path = Tag/StatusHighlighted.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +218,6 @@
 				4CE55D801566A0A60066A842 /* StatusFailed.png */,
 				4C60509D155F091D00351D19 /* StatusInactive.png */,
 				DD4F7C4913C322FA00825C6E /* Status.png */,
-				DD4F7C4A13C322FA00825C6E /* StatusHighlighted.png */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 				DD4F7C1F13C30F9F00825C6E /* MainMenu.xib in Resources */,
 				DD4F7C4113C31B4A00825C6E /* Panel.xib in Resources */,
 				DD4F7C4B13C322FA00825C6E /* Status.png in Resources */,
-				DD4F7C4C13C322FA00825C6E /* StatusHighlighted.png in Resources */,
 				4C60509E155F091D00351D19 /* StatusInactive.png in Resources */,
 				4CE55D811566A0A60066A842 /* StatusFailed.png in Resources */,
 			);

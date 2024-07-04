@@ -20,7 +20,6 @@
         // Install status item into the menu bar
         self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:STATUS_ITEM_VIEW_WIDTH];
         statusItem.button.image = [NSImage imageNamed:@"StatusInactive"];
-        statusItem.button.alternateImage = [NSImage imageNamed:@"StatusHighlighted"];
         statusItem.button.action = @selector(togglePanel:);
         self.inError = NO;
     }
