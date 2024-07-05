@@ -89,7 +89,7 @@ void* kContextActivePanel = &kContextActivePanel;
     self.menubarController = [[[MenubarController alloc] init] autorelease];
     self.statusFetcher = [[[StatusStore alloc] initWithListenerAndKey:self key:key] autorelease];
     self.statusMenu = [[[NSMenu alloc] init] autorelease];
-    [self.statusMenu addItemWithTitle:@"Quit" action:@selector(quitClicked) keyEquivalent:@"q"];
+    [self.statusMenu addItemWithTitle:NSLocalizedString(@"Quit", @"Action to exit program") action:@selector(quitClicked) keyEquivalent:@"q"];
     [[self panelController] setSignedIn:NO];
     [_menubarController setStatus:NO];
     [_panelController disable];

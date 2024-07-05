@@ -282,16 +282,16 @@
     entry.working = YES;
     if (hasDescription || hasTags) {
         if (signedIn) {
-            [box setTitle:@"Press enter to continue with task:"];
+            [box setTitle:NSLocalizedString(@"Press enter to continue with task:", @"Changing tasks, no status change")];
         } else {
-            [box setTitle:@"Press enter to start working on task:"];
+            [box setTitle:NSLocalizedString(@"Press enter to start working on task:", @"Start task, changes state to working")];
         }
     } else {
         if (signedIn) {
             entry.working = NO;
-            [box setTitle:@"Pressing enter will sign you out"];
+            [box setTitle:NSLocalizedString(@"Pressing enter will sign you out", @"Stop task, change state to not working")];
         } else {
-            [box setTitle:@"Enter to start working from timestamp:"];
+            [box setTitle:NSLocalizedString(@"Enter to start working from timestamp:", @"Start working from the specified timestamp")];
         }
     }
     if (self.backspaceDetected) {
