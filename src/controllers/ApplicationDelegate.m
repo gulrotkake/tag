@@ -55,15 +55,17 @@ void* kContextActivePanel = &kContextActivePanel;
             [self failedMiserably:@"Hotkey registration failed"];
         }
     }
+    NSString *total = nil;
     if (minutes > 0 || hours > 0) {
-        NSString* total;
         if (hours > 0) {
             total = [NSString stringWithFormat:@"Today: %dh %dm", hours, minutes];
         } else {
             total = [NSString stringWithFormat:@"Today: %dm", minutes];
         }
-        [_panelController setTotal:total];
+    } else {
+        total = @"";
     }
+    [_panelController setTotal:total];
     [_panelController setWorking:working];
     [_menubarController setStatus:working];
 }
