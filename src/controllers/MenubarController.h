@@ -11,5 +11,4 @@
 - (void)setError:(NSString*)error;
 - (void)setStatus:(BOOL)working;
 
-
 @end
