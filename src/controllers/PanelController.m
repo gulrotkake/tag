@@ -271,9 +271,17 @@
         descriptionString = [descriptionString substringFromIndex:dateRange.location + dateRange.length];
     }
 
-    for (NSString* tag in inputTags) {
-        descriptionString = [descriptionString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"#%@", tag] withString:tag];
-    }
+    NSError *error = nil;
+    NSRegularExpression *keepTags = [NSRegularExpression regularExpressionWithPattern:@"(^|\\s)#(\\w+)" options:0 error:&error];
+    NSRegularExpression *rmTags = [NSRegularExpression regularExpressionWithPattern:@"(^|\\s)##\\w+" options:0 error:&error];
+    descriptionString = [rmTags stringByReplacingMatchesInString:descriptionString
+                                                               options:0
+                                                                 range:NSMakeRange(0, descriptionString.length)
+                                                          withTemplate:@""];
+    descriptionString = [keepTags stringByReplacingMatchesInString:descriptionString
+                                                               options:0
+                                                                 range:NSMakeRange(0, descriptionString.length)
+                                                          withTemplate:@"$1$2"];
     descriptionString = [descriptionString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     entry.description = descriptionString;
     [descriptionText setStringValue:descriptionString];
