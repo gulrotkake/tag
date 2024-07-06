@@ -82,6 +82,21 @@ static NSString* mkdir(NSString* filePath) {
     return [input substringWithRange:range];
 }
 
+- (BOOL)validEntry:(NSDate*)timestamp {
+    NSArray* csvData = [self getCSVData];
+    NSArray* lastEntry = [csvData lastObject];
+
+    // Ensure this entry is greater than or equal the last entry
+    if (lastEntry) {
+        NSString* last = [[lastEntry objectAtIndex:1] length] == 0 ? [lastEntry objectAtIndex:0] : [lastEntry objectAtIndex:1];
+        NSDate* previous = [Utilities getDateFromUTCTimestamp:last];
+        if ([timestamp compare:previous] == NSOrderedAscending) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
 - (void)addEntry:(NSDate*)timestamp tags:(NSArray*)tags description:(NSString*)description {
     // Get the last entry from the CSV file
     NSArray* csvData = [self getCSVData];

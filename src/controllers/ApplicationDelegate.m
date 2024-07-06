@@ -145,4 +145,8 @@ void* kContextActivePanel = &kContextActivePanel;
     [self.statusFetcher fetchImmediatelyIfNotFetching];
 }
 
+- (BOOL)validEntry:(NSDate*)timestamp {
+    return [self.statusFetcher validEntry:timestamp];
+}
+
 @end

@@ -11,6 +11,7 @@
 
 @required
 - (void)registerEntry:(NSDate*)timestamp tags:(NSArray*)tags description:(NSString*)description;
+- (BOOL)validEntry:(NSDate*)timestamp;
 @end
 
 #pragma mark -

@@ -105,15 +105,20 @@
 
 - (BOOL)textView:(NSTextView*)aTextView doCommandBySelector:(SEL)aSelector {
     if (aSelector == @selector(insertNewline:)) {
-        [_delegate registerEntry:[entry timestamp] tags:[entry tags] description:[entry description]];
-        [descriptionText setStringValue:@""];
-        [_inputText setString:@""];
-        [tags setStringValue:@""];
-        [when setStringValue:@""];
-        [self setHasActivePanel:NO];
-        [self closePanel];
-        return YES;
+        if ([_delegate validEntry:[entry timestamp]]) {
+            [_delegate registerEntry:[entry timestamp] tags:[entry tags] description:[entry description]];
+            [descriptionText setStringValue:@""];
+            [_inputText setString:@""];
+            [tags setStringValue:@""];
+            [when setStringValue:@""];
+            [self setHasActivePanel:NO];
+            [self closePanel];
+            return YES;
+        } else {
+            return NO;
+        }
     }
+
     if (aSelector == @selector(deleteBackward:) || aSelector == @selector(deleteForward:)) {
         self.backspaceDetected = [self.inputText textStorage].length > 0;
     }
@@ -288,6 +293,7 @@
     BOOL hasDescription = (descriptionString && [descriptionString length] > 0);
     BOOL hasTags = (tags && [inputTags count] > 0);
     entry.working = YES;
+    [box.titleCell setTextColor:NSColor.textColor];
     if (hasDescription || hasTags) {
         if (signedIn) {
             [box setTitle:NSLocalizedString(@"Press enter to continue with task:", @"Changing tasks, no status change")];
@@ -302,6 +308,12 @@
             [box setTitle:NSLocalizedString(@"Enter to start working from timestamp:", @"Start working from the specified timestamp")];
         }
     }
+
+    if (![_delegate validEntry:[entry timestamp]]) {
+        [box.titleCell setTextColor:NSColor.redColor];
+        [box setTitle:NSLocalizedString(@"Timestamp not greater than previous", @"Timestamp not greater than previous")];
+    }
+
     if (self.backspaceDetected) {
         self.backspaceDetected = false;
     } else if ([inString hasSuffix:@"#"]) {
