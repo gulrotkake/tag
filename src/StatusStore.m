@@ -142,8 +142,6 @@ static NSString* mkdir(NSString* filePath) {
     }
 
     bool working = lines.count > 0 && [[[lines lastObject] objectAtIndex:1] length] == 0;
-    // NSString *entry = working? [[lines lastObject] objectAtIndex:0] : [Utilities getUTCDate:now];
-
     int hours = secondsWorked / (3600);
     int minutes = secondsWorked / (60) - hours * 60;
 
