@@ -276,17 +276,11 @@
         descriptionString = [descriptionString substringFromIndex:dateRange.location + dateRange.length];
     }
 
-    NSError *error = nil;
-    NSRegularExpression *keepTags = [NSRegularExpression regularExpressionWithPattern:@"(^|\\s)#(\\w+)" options:0 error:&error];
-    NSRegularExpression *rmTags = [NSRegularExpression regularExpressionWithPattern:@"(^|\\s)##\\w+" options:0 error:&error];
-    descriptionString = [rmTags stringByReplacingMatchesInString:descriptionString
-                                                               options:0
-                                                                 range:NSMakeRange(0, descriptionString.length)
-                                                          withTemplate:@""];
-    descriptionString = [keepTags stringByReplacingMatchesInString:descriptionString
-                                                               options:0
-                                                                 range:NSMakeRange(0, descriptionString.length)
-                                                          withTemplate:@"$1$2"];
+    NSError* error = nil;
+    NSRegularExpression* keepTags = [NSRegularExpression regularExpressionWithPattern:@"(^|\\s)#(\\w+)" options:0 error:&error];
+    NSRegularExpression* rmTags = [NSRegularExpression regularExpressionWithPattern:@"(^|\\s)##\\w+" options:0 error:&error];
+    descriptionString = [rmTags stringByReplacingMatchesInString:descriptionString options:0 range:NSMakeRange(0, descriptionString.length) withTemplate:@""];
+    descriptionString = [keepTags stringByReplacingMatchesInString:descriptionString options:0 range:NSMakeRange(0, descriptionString.length) withTemplate:@"$1$2"];
     descriptionString = [descriptionString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     entry.description = descriptionString;
     [descriptionText setStringValue:descriptionString];
@@ -340,7 +334,7 @@
         NSRect statusItemFrame = statusItemButton.window.frame;
         statusRect.size = NSMakeSize(STATUS_ITEM_VIEW_WIDTH, [[NSStatusBar systemStatusBar] thickness]);
         statusRect.origin.x = NSMidX(statusItemFrame) - NSWidth(statusRect) / 2;
-        statusRect.origin.y =  NSMinY(statusItemFrame) - NSHeight(statusRect);
+        statusRect.origin.y = NSMinY(statusItemFrame) - NSHeight(statusRect);
     } else {
         statusRect.size = NSMakeSize(STATUS_ITEM_VIEW_WIDTH, [[NSStatusBar systemStatusBar] thickness]);
         statusRect.origin.x = roundf((NSWidth(screenRect) - NSWidth(statusRect)) / 2);

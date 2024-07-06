@@ -9,7 +9,7 @@
 @property(retain, nonatomic) StatusStore* statusFetcher;
 @property(assign, nonatomic) BOOL firstFetch;
 @property(retain) NSString* key;
-@property (retain, nonatomic) NSMenu *statusMenu;
+@property(retain, nonatomic) NSMenu* statusMenu;
 
 @end
 
@@ -55,7 +55,7 @@ void* kContextActivePanel = &kContextActivePanel;
             [self failedMiserably:@"Hotkey registration failed"];
         }
     }
-    NSString *total = nil;
+    NSString* total = nil;
     if (minutes > 0 || hours > 0) {
         if (hours > 0) {
             total = [NSString stringWithFormat:@"Today: %dh %dm", hours, minutes];
@@ -79,9 +79,7 @@ void* kContextActivePanel = &kContextActivePanel;
 
 - (void)hotkeyWithEvent:(NSEvent*)hkEvent {
     if (![_menubarController hasActiveIcon]) {
-        [[NSApplication sharedApplication] sendAction:_menubarController.statusItem.button.action
-                                                   to:_menubarController.statusItem.button.target
-                                                 from:_menubarController.statusItem.button];
+        [[NSApplication sharedApplication] sendAction:_menubarController.statusItem.button.action to:_menubarController.statusItem.button.target from:_menubarController.statusItem.button];
     }
 }
 
@@ -99,8 +97,7 @@ void* kContextActivePanel = &kContextActivePanel;
     [statusFetcher fetchImmediatelyIfNotFetching];
 }
 
-
-- (void) quitClicked {
+- (void)quitClicked {
     [NSApp terminate:self];
 }
 
@@ -113,7 +110,7 @@ void* kContextActivePanel = &kContextActivePanel;
 #pragma mark - Actions
 
 - (IBAction)togglePanel:(id)sender {
-    NSEvent *event = NSApp.currentEvent;
+    NSEvent* event = NSApp.currentEvent;
     if (event.type == NSEventTypeRightMouseDown || (event.modifierFlags & NSEventModifierFlagOption)) {
         self.menubarController.statusItem.menu = self.statusMenu;
         [self.menubarController.statusItem.button performClick:nil];
