@@ -36,7 +36,7 @@ Each start timestamp must be greater than or equal to the previous stop timestam
 
 ## History
 
-Tag is a program that I wrote a long time ago. It was initially abandoned, without being released, as I didn't need, but work circumstances changed and now I'm working on resurrecting it. See [https://tightloop.io/resurrection/index.html](https://tightloop.io/resurrection/index.html) for a more in-depth story.
+Tag is a program that I wrote a long time ago. It was initially abandoned, without being released, as I didn't need it, but work circumstances changed and now I'm working on resurrecting it. See [https://tightloop.io/resurrection/index.html](https://tightloop.io/resurrection/index.html) for a more in-depth story.
 
 ## Video
 
