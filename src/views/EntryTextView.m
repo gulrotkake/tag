@@ -1,11 +1,3 @@
-//
-//  EntryTextView.m
-//  Popup
-//
-//  Created by Michael Mortensen on 5/25/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "EntryTextView.h"
 
 @interface EntryTextView ()
