@@ -6,7 +6,7 @@ Tag is a small utility to track working hours. Entries are stored in `~/.tag/tag
 
 ## Usage
 
-- Ctrl-Command-Space is the hotkey that triggeres the task dialog, allowing quickly starting/modifying/finishing tasks.
+- Shift-Command-Space is the hotkey that triggeres the task dialog, allowing quickly starting/modifying/finishing tasks.
 
 - Typing a string starts working on a task from the current time. If the string is prefixed with a timestamp, start is set to the prefixed timestamp:
 

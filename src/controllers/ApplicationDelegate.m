@@ -51,7 +51,7 @@ void* kContextActivePanel = &kContextActivePanel;
         firstFetch = NO;
         [_panelController enable];
         DDHotKeyCenter* c = [[[DDHotKeyCenter alloc] init] autorelease];
-        if (![c registerHotKeyWithKeyCode:kVK_Space modifierFlags:(NSEventModifierFlagControl | NSEventModifierFlagCommand) target:self action:@selector(hotkeyWithEvent:) object:nil]) {
+        if (![c registerHotKeyWithKeyCode:kVK_Space modifierFlags:(NSEventModifierFlagShift | NSEventModifierFlagCommand) target:self action:@selector(hotkeyWithEvent:) object:nil]) {
             [self failedMiserably:@"Hotkey registration failed"];
         }
     }
